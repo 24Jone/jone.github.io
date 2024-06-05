@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024年高考加油</title>
+    <style>
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s ease infinite;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1 {
+            color: #0056b3;
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: textFadeIn 2s 0.5s both;
+        }
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            animation: textFadeIn 2s 1s both;
+        }
+        @keyframes textFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        button {
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #003d82;
+            transform: scale(1.1);
+        }
+        button:active {
+            background-color: #002752;
+            transform: scale(0.95);
+        }
+        #like-count {
+            font-size: 22px;
+            color: #d9534f;
+            margin-top: 20px;
+        }
+        .flower {
+            position: absolute;
+            font-size: 20px; /* Use font size to control emoji size */
+            animation: fall linear infinite;
+            opacity: 0;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>艾繁星同学，加油！</h1>
+        <p>在这重要的时刻，我们为你们送上最真挚的祝福。</p>
+        <p>愿你的努力都能开花结果，愿你的梦想都能照进现实。</p>
+        <p>没有翻不了的高山也没有走不出的沙漠，更没有超越不了的自我</p>
+        <p>加油！加油！</p>
+        
+        <button onclick="like()">点击加油</button>
+        <div id="like-count">已有 <span id="count">665</span> 人帮你加油点赞！</div>
+    </div>
+
+    <script>
+        let likeCount = 665;
+
+        function like() {
+            likeCount++;
+            document.getElementById('count').textContent = likeCount;
+            document.getElementById('like-count').style.display = 'block';
+
+            if (likeCount === 666) {
+                showFlowers();
+            }
+        }
+
+        function showFlowers() {
+            for (let i = 0; i < 50; i++) {
+                let flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.textContent = '🌸'; // Using an emoji as the flower
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDuration = Math.random() * 3 + 3 + 's'; // 3-6 seconds random duration
+                flower.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(flower);
+                setTimeout(() => {
+                    flower.remove();
+                }, 8000); // Remove flower after 8 seconds
+            }
+        }
+    </script>
+</body>
+</html>
